@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Settings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Restaurant Settings</h1>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Settings Form -->
+        <form method="POST" action="{{ url_for('admin_settings') }}">
+            <div class="form-group">
+                <label for="restaurant_name">Restaurant Name</label>
+                <input type="text" class="form-control" id="restaurant_name" name="restaurant_name" value="{{ settings.restaurant_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="opening_time">Opening Time</label>
+                <input type="time" class="form-control" id="opening_time" name="opening_time" value="{{ settings.opening_time }}" required>
+            </div>
+            <div class="form-group">
+                <label for="closing_time">Closing Time</label>
+                <input type="time" class="form-control" id="closing_time" name="closing_time" value="{{ settings.closing_time }}" required>
+            </div>
+            <div class="form-group">
+                <label for="max_capacity">Max Capacity</label>
+                <input type="number" class="form-control" id="max_capacity" name="max_capacity" value="{{ settings.max_capacity }}" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_email">Contact Email</label>
+                <input type="email" class="form-control" id="contact_email" name="contact_email" value="{{ settings.contact_email }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Settings</button>
+        </form>
+        <a href="/admin/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    </div>
+</body>
+</html>

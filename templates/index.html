@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-container {
+            background-color: blue;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: rgb(51, 51, 51);
+        }
+        
+        .login-option {
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            font-sirgb(226, 69, 12) color: rgb(255, 255, 255);
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .login-option:hover {
+            background-color: #0056b3;
+        }
+        
+        .admin {
+            background-color: #28a745;
+        }
+        
+        .admin:hover {
+            background-color: #218838;
+        }
+        
+        .user {
+            background-color: #007bff;
+        }
+        
+        .user:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>SHIBE ZONE</h1>
+        <a href="/user/login" class="login-option user">Client</a>
+        <a href="/admin/login" class="login-option admin">Admin</a>
+    </div>
+</body>
+
+</html>

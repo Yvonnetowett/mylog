@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: orange;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .user-info p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .dashboard-actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .action-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>HI</h1>
+        <div class="user-info">
+            <p>Welcome, <strong>{{ user.fullname }}</strong>!</p>
+            
+        </div>
+        <div class="dashboard-actions">
+            <a href="/services" class="action-button">Services</a>
+            <a href="/My profile" class="action-button">My Profile</a>
+
+        </div>
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .modify-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .modify-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modify-form label {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .modify-form input, .modify-form select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .modify-form button {
+            padding: 15px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modify-form button:hover {
+            background-color: #218838;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .flash-messages {
+            margin-bottom: 20px;
+        }
+
+        .flash-messages .alert {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .flash-messages .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .flash-messages .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="modify-container">
+        <h1>Modify System</h1>
+
+        <!-- Flash Messages -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <!-- Modify System Form -->
+        <form class="modify-form" action="/modify_system" method="post">
+            <label for="user_id">User ID:</label>
+            <input type="text" id="user_id" name="user_id" required>
+
+            <label for="action">Action:</label>
+            <select id="action" name="action" required>
+                <option value="delete">Delete User</option>
+                <option value="promote">Promote to Admin</option>
+                <option value="demote">Demote to User</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="/admin/dashboard" class="back-link">Back to Dashboard</a>
+    </div>
+</body>
+</html>
